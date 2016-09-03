@@ -1,4 +1,4 @@
-group 'com.whiteelephant.nineplus'
+group 'com.whitelephant.nineplus'
 version '1.0-SNAPSHOT'
 
 apply plugin: 'war'
