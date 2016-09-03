@@ -9,8 +9,24 @@
 <html>
   <head>
     <title>$Title$</title>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
   </head>
   <body>
   $END$
   </body>
+  <script >
+    var data={title:"shit"};
+    $.ajax({
+      url: "/create",
+      contentType:"application/json",
+      data: JSON.stringify(data),
+      type: "post",
+      success: function (data) {
+        alert(data);
+      },
+      error: function () {
+        alert("error");
+      }
+    })
+  </script>
 </html>
