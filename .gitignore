@@ -1,5 +1,6 @@
 out
 build
-.gradle/
-.idea/
-.gradle/
+classes
+.gradle
+.idea
+.gradle
