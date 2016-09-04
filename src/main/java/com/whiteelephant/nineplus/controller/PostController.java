@@ -1,6 +1,6 @@
 package com.whiteelephant.nineplus.controller;
 
-import com.whiteelephant.nineplus.dao.Dao;
+import com.whiteelephant.nineplus.dao.mapper;
 import com.whiteelephant.nineplus.network.PostResponse;
 import com.whiteelephant.nineplus.pojo.Post;
 import org.apache.ibatis.session.SqlSession;
@@ -8,8 +8,6 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-
-import javax.ws.rs.POST;
 
 /**
  * Created by gordon on 16/9/3.
@@ -19,7 +17,7 @@ import javax.ws.rs.POST;
 public class PostController {
 
     @Autowired
-    Dao dao;
+    mapper dao;
 
     @Autowired
     SqlSessionFactory sf;
@@ -35,7 +33,8 @@ public class PostController {
     public PostResponse insertPost(@RequestBody Post post) {
         try {
             SqlSession session = sf.openSession();
-            session.getMapper(Dao.class).insertPost(post);
+            session.getMapper(mapper.class).insertPost(post);
+            post.setAuthor("wang");
             session.commit();
             return new PostResponse(true, "");
         } catch (Exception e) {
