@@ -2,8 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.whiteelephant.nineplus.dao.Mapper">
     <insert id="insertPost" parameterType="Post">
-      INSERT  INTO posts (author,title,readCount,wordCount,category) VALUES
-      (#{author},#{title},#{readCount},#{wordCount},#{category})
+      INSERT  INTO posts (postId,author,title,readCount,wordCount,category) VALUES
+      (#{postId},#{author},#{title},#{readCount},#{wordCount},#{category})
     </insert>
     <insert id="insertPostNode" parameterType="PostNode">
         INSERT INTO nodes (postId,nodeType,isSubtitle,mediaId,content,mediaIds) VALUES

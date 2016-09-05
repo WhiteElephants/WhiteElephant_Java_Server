@@ -36,7 +36,7 @@ public class PostController {
     public PostResponse insertPost(@RequestBody Post post) {
         try {
             SqlSession session = sf.openSession();
-            session.getMapper(Mapper.class).insertPost(post);
+            Mapper mapper = session.getMapper(Mapper.class);
             session.commit();
             return new PostResponse(true, "");
         } catch (Exception e) {
