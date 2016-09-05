@@ -5,6 +5,6 @@ import com.whiteelephant.nineplus.pojo.Post;
 /**
  * Created by gordon on 16/9/3.
  */
-public interface mapper {
+public interface Mapper {
     void insertPost(Post post);
 }

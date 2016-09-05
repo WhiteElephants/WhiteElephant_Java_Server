@@ -1,11 +1,12 @@
 package com.whiteelephant.nineplus.controller;
 
-import com.whiteelephant.nineplus.dao.mapper;
+import com.whiteelephant.nineplus.dao.Mapper;
 import com.whiteelephant.nineplus.network.PostResponse;
 import com.whiteelephant.nineplus.pojo.Post;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,7 +18,7 @@ import org.springframework.web.bind.annotation.*;
 public class PostController {
 
     @Autowired
-    mapper dao;
+    Mapper dao;
 
     @Autowired
     SqlSessionFactory sf;
@@ -29,11 +30,11 @@ public class PostController {
     }
 
     @ResponseBody
-    @RequestMapping(value = "/create", method = RequestMethod.POST)
+    @RequestMapping(value = "/create", method = RequestMethod.POST,consumes = {MediaType.APPLICATION_JSON_VALUE})
     public PostResponse insertPost(@RequestBody Post post) {
         try {
             SqlSession session = sf.openSession();
-            session.getMapper(mapper.class).insertPost(post);
+            session.getMapper(Mapper.class).insertPost(post);
             post.setAuthor("wang");
             session.commit();
             return new PostResponse(true, "");

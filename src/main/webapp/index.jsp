@@ -15,7 +15,7 @@
   $END$
   </body>
   <script >
-    var data={title:"shit"};
+    var data={title:"shit",author:"gordon"};
     $.ajax({
       url: "/create",
       contentType:"application/json",
