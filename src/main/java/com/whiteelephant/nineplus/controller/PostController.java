@@ -30,7 +30,7 @@ public class PostController {
     }
 
     @ResponseBody
-    @RequestMapping(value = "/create", method = RequestMethod.POST,consumes = {MediaType.APPLICATION_JSON_VALUE})
+    @RequestMapping(value = "/create", method = RequestMethod.POST)
     public PostResponse insertPost(@RequestBody Post post) {
         try {
             SqlSession session = sf.openSession();
