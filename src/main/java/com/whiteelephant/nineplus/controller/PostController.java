@@ -35,7 +35,6 @@ public class PostController {
         try {
             SqlSession session = sf.openSession();
             session.getMapper(Mapper.class).insertPost(post);
-            post.setAuthor("wang");
             session.commit();
             return new PostResponse(true, "");
         } catch (Exception e) {
