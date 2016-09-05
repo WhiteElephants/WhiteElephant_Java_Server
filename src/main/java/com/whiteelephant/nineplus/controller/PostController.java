@@ -39,7 +39,7 @@ public class PostController {
             return new PostResponse(true, "");
         } catch (Exception e) {
             e.printStackTrace();
-            return new PostResponse(true, "");
+            return new PostResponse(false, "");
         }
 
     }
