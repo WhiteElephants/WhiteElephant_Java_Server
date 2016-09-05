@@ -6,11 +6,11 @@ import java.util.List;
  * Created by gordon on 9/5/16.
  */
 public class PostNode {
-    private int type;
-    private List<String> mediaPaths;
+    private int nodeType;
+    private List<String> mediaIds;
     private String content;
-    private String storagePath;
-    private boolean title;
+    private String mediaId;
+    private boolean isSubtitle;
 
     public PostNode() {
     }
@@ -23,35 +23,35 @@ public class PostNode {
         this.content = content;
     }
 
-    public List<String> getMediaPaths() {
-        return mediaPaths;
+    public List<String> getMediaIds() {
+        return mediaIds;
     }
 
-    public void setMediaPaths(List<String> mediaPaths) {
-        this.mediaPaths = mediaPaths;
+    public void setMediaIds(List<String> mediaIds) {
+        this.mediaIds = mediaIds;
     }
 
-    public boolean isTitle() {
-        return title;
+    public boolean isSubtitle() {
+        return isSubtitle;
     }
 
-    public void setTitle(boolean title) {
-        this.title = title;
+    public void setSubtitle(boolean subtitle) {
+        isSubtitle = subtitle;
     }
 
-    public String getStoragePath() {
-        return storagePath;
+    public String getMediaId() {
+        return mediaId;
     }
 
-    public void setStoragePath(String storagePath) {
-        this.storagePath = storagePath;
+    public void setMediaId(String mediaId) {
+        this.mediaId = mediaId;
     }
 
-    public int getType() {
-        return type;
+    public int getNodeType() {
+        return nodeType;
     }
 
-    public void setType(int type) {
-        this.type = type;
+    public void setNodeType(int nodeType) {
+        this.nodeType = nodeType;
     }
 }
