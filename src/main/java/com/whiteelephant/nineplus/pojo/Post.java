@@ -3,39 +3,30 @@ package com.whiteelephant.nineplus.pojo;
 import org.apache.ibatis.type.Alias;
 
 import java.sql.Timestamp;
+import java.util.List;
 
 /**
  * Created by gordon on 16/9/3.
  */
 @Alias("Post")
 public class Post {
-    private Timestamp publishTime;
-    private String author;
-    private String title;
-    private String serializedData;
-    private int readCount;
-    private int wordCount;
-    private String category;
+    public String author;
+    public String title;
+    public List<PostNode> nodes;
+    public int readCount;
+    public int wordCount;
+    public String category;
 
     public Post() {
     }
 
-    public Post(Timestamp publishTime, String author, String title, String serializedData, int readCount, int wordCount, String category) {
-        this.publishTime = publishTime;
+    public Post(String author, String category, List<PostNode> nodes, int readCount, String title, int wordCount) {
         this.author = author;
-        this.title = title;
-        this.serializedData = serializedData;
-        this.readCount = readCount;
-        this.wordCount = wordCount;
         this.category = category;
-    }
-
-    public Timestamp getPublishTime() {
-        return publishTime;
-    }
-
-    public void setPublishTime(Timestamp publishTime) {
-        this.publishTime = publishTime;
+        this.nodes = nodes;
+        this.readCount = readCount;
+        this.title = title;
+        this.wordCount = wordCount;
     }
 
     public String getAuthor() {
@@ -46,20 +37,20 @@ public class Post {
         this.author = author;
     }
 
-    public String getTitle() {
-        return title;
+    public String getCategory() {
+        return category;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setCategory(String category) {
+        this.category = category;
     }
 
-    public String getSerializedData() {
-        return serializedData;
+    public List<PostNode> getNodes() {
+        return nodes;
     }
 
-    public void setSerializedData(String serializedData) {
-        this.serializedData = serializedData;
+    public void setNodes(List<PostNode> nodes) {
+        this.nodes = nodes;
     }
 
     public int getReadCount() {
@@ -70,6 +61,14 @@ public class Post {
         this.readCount = readCount;
     }
 
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
     public int getWordCount() {
         return wordCount;
     }
@@ -78,11 +77,5 @@ public class Post {
         this.wordCount = wordCount;
     }
 
-    public String getCategory() {
-        return category;
-    }
 
-    public void setCategory(String category) {
-        this.category = category;
-    }
 }

@@ -15,18 +15,18 @@
   $END$
   </body>
   <script >
-    var data={title:"shit",author:"gordon"};
-    $.ajax({
-      url: "/create",
-      contentType:"application/json",
-      data: JSON.stringify(data),
-      type: "post",
-      success: function (data) {
-        alert(data);
-      },
-      error: function () {
-        alert("error");
-      }
-    })
+//    var data={title:"shit",author:"gordon"};
+//    $.ajax({
+//      url: "/create",
+//      contentType:"application/json",
+//      data: JSON.stringify(data),
+//      type: "post",
+//      success: function (data) {
+//        alert(data);
+//      },
+//      error: function () {
+//        alert("error");
+//      }
+//    })
   </script>
 </html>
