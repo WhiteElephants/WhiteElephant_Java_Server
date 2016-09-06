@@ -1,4 +1,6 @@
-package com.whiteelephant.nineplus.beans;
+package com.whiteelephant.nineplus.network.requests;
+
+import com.whiteelephant.nineplus.beans.PostNode;
 
 import java.util.List;
 
@@ -6,15 +8,14 @@ import java.util.List;
  * Created by gordon on 16/9/3.
  */
 
-public class PostRequestType {
+public class PostRequest {
     public String author;
     public String title;
     public List<PostNode> nodes;
-    public int readCount;
     public int wordCount;
     public String category;
 
-    public PostRequestType() {
+    public PostRequest() {
     }
 
 
@@ -40,14 +41,6 @@ public class PostRequestType {
 
     public void setNodes(List<PostNode> nodes) {
         this.nodes = nodes;
-    }
-
-    public int getReadCount() {
-        return readCount;
-    }
-
-    public void setReadCount(int readCount) {
-        this.readCount = readCount;
     }
 
     public String getTitle() {

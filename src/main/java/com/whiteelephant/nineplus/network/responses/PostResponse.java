@@ -1,4 +1,4 @@
-package com.whiteelephant.nineplus.network;
+package com.whiteelephant.nineplus.network.responses;
 
 /**
  * Created by gordon on 16/9/3.

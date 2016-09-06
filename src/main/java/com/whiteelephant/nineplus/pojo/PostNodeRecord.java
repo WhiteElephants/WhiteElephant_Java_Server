@@ -1,7 +1,5 @@
 package com.whiteelephant.nineplus.pojo;
 
-import org.apache.ibatis.type.Alias;
-
 /**
  * Created by gordon on 9/6/16.
  */

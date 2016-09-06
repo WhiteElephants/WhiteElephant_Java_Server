@@ -1,9 +1,9 @@
 package com.whiteelephant.nineplus.controller;
 
 import com.alibaba.fastjson.JSON;
-import com.whiteelephant.nineplus.beans.PostRequestType;
+import com.whiteelephant.nineplus.network.requests.PostRequest;
 import com.whiteelephant.nineplus.dao.Mapper;
-import com.whiteelephant.nineplus.network.PostResponse;
+import com.whiteelephant.nineplus.network.responses.PostResponse;
 import com.whiteelephant.nineplus.beans.PostNode;
 import com.whiteelephant.nineplus.pojo.PostNodeRecord;
 import com.whiteelephant.nineplus.pojo.PostRecord;
@@ -38,16 +38,18 @@ public class PostController {
 
     @ResponseBody
     @RequestMapping(value = "/create", method = RequestMethod.POST)
-    public PostResponse insertPost(@RequestBody PostRequestType post) {
+    public PostResponse insertPost(@RequestBody PostRequest post) {
         try {
             SqlSession session = sf.openSession();
             Mapper mapper = session.getMapper(Mapper.class);
             String distinctId = UuidUtil.generateId();
             mapper.insertPost(new PostRecord(distinctId, post.getAuthor(), post.getTitle(), post.getWordCount(), post.getCategory()));
-            for (PostNode postNode : post.nodes) {//此处要有null判断~~
-               PostNodeRecord record= new PostNodeRecord(distinctId, postNode.getNodeType(), postNode.getIsSubtitle(),
-                        postNode.getMediaId(), postNode.getContent(), JSON.toJSONString(postNode.getMediaIds()));
-                mapper.insertPostNode(record);
+            if (post.nodes != null) {
+                for (PostNode postNode : post.nodes) {//此处要有null判断~~
+                    PostNodeRecord record = new PostNodeRecord(distinctId, postNode.getNodeType(), postNode.getIsSubtitle(),
+                            postNode.getMediaId(), postNode.getContent(), JSON.toJSONString(postNode.getMediaIds()));
+                    mapper.insertPostNode(record);
+                }
             }
             session.commit();
             return new PostResponse(true, "");
