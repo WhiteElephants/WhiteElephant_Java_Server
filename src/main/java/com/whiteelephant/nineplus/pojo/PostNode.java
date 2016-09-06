@@ -1,10 +1,13 @@
 package com.whiteelephant.nineplus.pojo;
 
+import org.apache.ibatis.type.Alias;
+
 import java.util.List;
 
 /**
  * Created by gordon on 9/5/16.
  */
+@Alias("PostNode")
 public class PostNode {
     private int nodeType;
     private List<String> mediaIds;

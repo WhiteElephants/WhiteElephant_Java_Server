@@ -5,7 +5,7 @@
       INSERT  INTO posts (postId,author,title,readCount,wordCount,category) VALUES
       (#{postId},#{author},#{title},#{readCount},#{wordCount},#{category})
     </insert>
-    <insert id="insertPostNode" parameterType="PostNode">
+    <insert id="insertPostNode" parameterMap="PostNode">
         INSERT INTO nodes (postId,nodeType,isSubtitle,mediaId,content,mediaIds) VALUES
         (#{postId},#{nodeType},#{isSubtitle},#{mediaId},#{content},#{mediaIds})
     </insert>

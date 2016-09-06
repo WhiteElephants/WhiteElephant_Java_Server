@@ -20,14 +20,6 @@ public class Post {
     public Post() {
     }
 
-    public Post(String author, String category, List<PostNode> nodes, int readCount, String title, int wordCount) {
-        this.author = author;
-        this.category = category;
-        this.nodes = nodes;
-        this.readCount = readCount;
-        this.title = title;
-        this.wordCount = wordCount;
-    }
 
     public String getAuthor() {
         return author;

@@ -1,10 +1,13 @@
 package com.whiteelephant.nineplus.dao;
 
+import com.whiteelephant.nineplus.pojo.Post;
+import com.whiteelephant.nineplus.pojo.PostNode;
+
 /**
  * Created by gordon on 16/9/3.
  */
 public interface Mapper {
-    void insertPost(String postId, String author, String title, int readCount, int wordCount, String category);
+    void insertPost(Post p);
 
-    void insertPostNode(String postId, int nodeType, boolean isSubtitle, String mediaId, String content, String mediaIds);
+    void insertPostNode(PostNode p);
 }
