@@ -4,3 +4,4 @@ classes
 .gradle
 .idea
 .gradle
+src/main/resources/jdbc.properties

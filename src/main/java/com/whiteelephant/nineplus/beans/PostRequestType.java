@@ -1,11 +1,12 @@
-package com.whiteelephant.nineplus.pojo;
+package com.whiteelephant.nineplus.beans;
 
 import java.util.List;
 
 /**
  * Created by gordon on 16/9/3.
  */
-public class Post {
+
+public class PostRequestType {
     public String author;
     public String title;
     public List<PostNode> nodes;
@@ -13,7 +14,7 @@ public class Post {
     public int wordCount;
     public String category;
 
-    public Post() {
+    public PostRequestType() {
     }
 
 

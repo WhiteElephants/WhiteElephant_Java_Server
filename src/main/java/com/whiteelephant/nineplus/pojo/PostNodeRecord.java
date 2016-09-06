@@ -1,11 +1,10 @@
-package com.whiteelephant.nineplus.records;
+package com.whiteelephant.nineplus.pojo;
 
 import org.apache.ibatis.type.Alias;
 
 /**
  * Created by gordon on 9/6/16.
  */
-@Alias("PostNodeRecord")
 public class PostNodeRecord {
     private String postId;
     private int nodeType;

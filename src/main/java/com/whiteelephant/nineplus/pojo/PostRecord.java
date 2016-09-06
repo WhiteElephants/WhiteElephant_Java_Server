@@ -1,4 +1,4 @@
-package com.whiteelephant.nineplus.records;
+package com.whiteelephant.nineplus.pojo;
 
 import org.apache.ibatis.type.Alias;
 
