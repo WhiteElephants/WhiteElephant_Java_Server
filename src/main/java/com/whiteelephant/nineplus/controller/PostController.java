@@ -44,8 +44,8 @@ public class PostController {
             Mapper mapper = session.getMapper(Mapper.class);
             String distinctId = UuidUtil.generateId();
             mapper.insertPost(new PostRecord(distinctId, post.getAuthor(), post.getTitle(), post.getWordCount(), post.getCategory()));
-            for (PostNode postNode : post.nodes) {
-               PostNodeRecord record= new PostNodeRecord(distinctId, postNode.getNodeType(), postNode.isSubtitle(),
+            for (PostNode postNode : post.nodes) {//此处要有null判断~~
+               PostNodeRecord record= new PostNodeRecord(distinctId, postNode.getNodeType(), postNode.getIsSubtitle(),
                         postNode.getMediaId(), postNode.getContent(), JSON.toJSONString(postNode.getMediaIds()));
                 mapper.insertPostNode(record);
             }

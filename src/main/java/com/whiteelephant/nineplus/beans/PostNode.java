@@ -12,7 +12,7 @@ public class PostNode {
     private List<String> mediaIds;
     private String content;
     private String mediaId;
-    private boolean isSubtitle;
+    private Boolean isSubtitle;
 
     public PostNode() {
     }
@@ -33,12 +33,12 @@ public class PostNode {
         this.mediaIds = mediaIds;
     }
 
-    public boolean isSubtitle() {
+    public Boolean getIsSubtitle() {
         return isSubtitle;
     }
 
-    public void setSubtitle(boolean subtitle) {
-        isSubtitle = subtitle;
+    public void setIsSubtitle(Boolean isSubtitle) {
+        this.isSubtitle = isSubtitle;
     }
 
     public String getMediaId() {
