@@ -5,6 +5,8 @@ import com.whiteelephant.nineplus.dao.Mapper;
 import com.whiteelephant.nineplus.network.PostResponse;
 import com.whiteelephant.nineplus.pojo.Post;
 import com.whiteelephant.nineplus.pojo.PostNode;
+import com.whiteelephant.nineplus.records.PostNodeRecord;
+import com.whiteelephant.nineplus.records.PostRecord;
 import com.whiteelephant.nineplus.utils.UuidUtil;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -41,10 +43,10 @@ public class PostController {
             SqlSession session = sf.openSession();
             Mapper mapper = session.getMapper(Mapper.class);
             String distinctId = UuidUtil.generateId();
-            mapper.insertPost(distinctId, post.getAuthor(), post.getTitle(), post.getReadCount(), post.getWordCount(), post.getCategory());
+            mapper.insertPost(new PostRecord(distinctId, post.getAuthor(), post.getTitle(), post.getWordCount(), post.getCategory()));
             for (PostNode postNode : post.nodes) {
-                mapper.insertPostNode(distinctId, postNode.getNodeType(), postNode.isSubtitle(),
-                        postNode.getMediaId(), postNode.getContent(), JSON.toJSONString(postNode.getMediaIds()));
+                mapper.insertPostNode(new PostNodeRecord(distinctId, postNode.getNodeType(), postNode.isSubtitle(),
+                        postNode.getMediaId(), postNode.getContent(), JSON.toJSONString(postNode.getMediaIds())));
             }
             session.commit();
             return new PostResponse(true, "");

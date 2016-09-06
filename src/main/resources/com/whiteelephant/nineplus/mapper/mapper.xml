@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.whiteelephant.nineplus.dao.Mapper">
-    <insert id="insertPost" parameterType="Post">
-      INSERT  INTO posts (postId,author,title,readCount,wordCount,category) VALUES
-      (#{postId},#{author},#{title},#{readCount},#{wordCount},#{category})
+    <insert id="insertPost" parameterMap="PostRecord">
+      INSERT  INTO posts (postId,author,title,wordCount,category) VALUES
+      (#{postId},#{author},#{title},#{wordCount},#{category})
     </insert>
-    <insert id="insertPostNode" parameterType="PostNode">
+    <insert id="insertPostNode" parameterMap="PostNodeRecord">
         INSERT INTO nodes (postId,nodeType,isSubtitle,mediaId,content,mediaIds) VALUES
         (#{postId},#{nodeType},#{isSubtitle},#{mediaId},#{content},#{mediaIds})
     </insert>
